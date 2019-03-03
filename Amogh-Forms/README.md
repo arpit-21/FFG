@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+#Install NodeJs from Official nodeJs website and test by using node -v or npm -v in your command prompt.
+#Install AngularCLI using npm, npm install -g @angular/cli
+#Run using ng serve --open
+
+#Download Git for local
+#Git clone this repository
+#Commit your changes into local and to push set upstream and an ssh key
