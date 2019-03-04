@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 <div *ngIf="!name; else forminfo">
   <form [formGroup]= "rForm" (ngSubmit)="addPost(rForm.value)">
     <div class="">
@@ -19,31 +19,13 @@
           Length between 30-500 characters
         </div>
         <!-- <label for="validate">Minimum of 3 characters</label>
-        <input type="checkbox" name="validate" formControlName="validate" value="1"> On -->
+        <input type="checkbox" name="validate" formControlName="validate" value="1"> On
         <input type="submit" class="btn btn-warning" value="SUBMIT FORM" [disabled]="!rForm.valid">
       </div>
     </div>
   </form>
-</div></div>
+</div></div> -->
 
-<div class="container-fluid">
-  <div>
-    <div class="form-container table table-striped">
-        <div *ngIf="!name; else forminfo">
-            <form [formGroup]= "rForm" (ngSubmit)="addPost(rForm.value)">
-              <h3 class="form-header">BEGINNER-LEVEL 1:</h3>
-              <div class="form-group">
-                  <label>FIRST NAME:</label>
-                <input type="text" formControlName="name">
-                <label>MIDDLE NAME:</label>
-                <input type="text" formControlName="name">
-              </div>
-              <hr class="line">
-              <input type="submit" class="btn btn-warning btn-block form-submit-button" value="SUBMIT FORM" [disabled]="!rForm.valid">
-            </form>
-          </div>
-  </div>
-</div>
 <div class="container">
     <table class="table table-striped">
        <tbody>
@@ -52,42 +34,107 @@
          </tr>
           <tr>
              <td colspan="1">
-                <form class="well form-horizontal">
+                <form class="well form-horizontal" [formGroup]= "rForm" (ngSubmit)="addPost(rForm.value)">
                    <fieldset>
                       <div class="form-group">
-                         <label class="col-md-4 control-label">Full Name</label>
+                         <label class="col-md-4 control-label">First Name</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text"></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="firstName" placeholder="First Name" class="form-control" formControlName="name" value="" type="text"></div>
+                            <div class="fieldAlert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                                {{ titleAlert }}
+                            </div>
                          </div>
                       </div>
                       <div class="form-group">
+                          <label class="col-md-4 control-label">Middle Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Last Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Customer ID</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">DATE OF BIRTH</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Gender</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">VOTER ID</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Marital Status</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Father's Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Mother's Maiden Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Spouse Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                      <!-- <div class="form-group">
                          <label class="col-md-4 control-label">Address Line 1</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="addressLine1" name="addressLine1" placeholder="Address Line 1" class="form-control" required="true" value="" type="text"></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="addressLine1" name="addressLine1" placeholder="Address Line 1" class="form-control"  value="" type="text"></div>
                          </div>
-                      </div>
-                      <div class="form-group">
+                      </div> -->
+                      <!-- <hr class="line"> -->
+                      <input type="reset" class="btn btn-warning btn-block form-submit-button">
+                      <!-- <div class="form-group">
                          <label class="col-md-4 control-label">Address Line 2</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="addressLine2" name="addressLine2" placeholder="Address Line 2" class="form-control" required="true" value="" type="text"></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="addressLine2" name="addressLine2" placeholder="Address Line 2" class="form-control"  value="" type="text"></div>
                          </div>
                       </div>
                       <div class="form-group">
                          <label class="col-md-4 control-label">City</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="city" name="city" placeholder="City" class="form-control" required="true" value="" type="text"></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="city" name="city" placeholder="City" class="form-control"  value="" type="text"></div>
                          </div>
                       </div>
                       <div class="form-group">
                          <label class="col-md-4 control-label">State/Province/Region</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="state" name="state" placeholder="State/Province/Region" class="form-control" required="true" value="" type="text"></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="state" name="state" placeholder="State/Province/Region" class="form-control"  value="" type="text"></div>
                          </div>
                       </div>
                       <div class="form-group">
                          <label class="col-md-4 control-label">Postal Code/ZIP</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="postcode" name="postcode" placeholder="Postal Code/ZIP" class="form-control" required="true" value="" type="text"></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="postcode" name="postcode" placeholder="Postal Code/ZIP" class="form-control"  value="" type="text"></div>
                          </div>
                       </div>
                       <div class="form-group">
@@ -104,22 +151,22 @@
                       <div class="form-group">
                          <label class="col-md-4 control-label">Email</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email" placeholder="Email" class="form-control" required="true" value="" type="text"></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email" placeholder="Email" class="form-control"  value="" type="text"></div>
                          </div>
                       </div>
                       <div class="form-group">
                          <label class="col-md-4 control-label">Phone Number</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="form-control"  value="" type="text"></div>
                          </div>
-                      </div>
+                      </div> -->
                    </fieldset>
                 </form>
              </td>
           </tr>
           <tr>
-              <hr class="line">
-              <input type="submit" class="btn btn-warning btn-block form-submit-button" value="SUBMIT FORM" [disabled]="!rForm.valid">
+              <!-- <hr class="line"> -->
+              <input type="submit" class="btn btn-success btn-block form-submit-button" value="SUBMIT FORM" [disabled]="!rForm.valid">
           </tr>
        </tbody>
     </table>
