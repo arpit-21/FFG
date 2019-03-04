@@ -21,9 +21,8 @@ hr.line {
     margin-left: 2.5%;
 }
 .fieldAlert{
-    background: white;
-    padding: 7px;
-    font-size: .9em;
+    padding: 5px;
+    font-size: .8em;
     color: red;
     display: inline-block;
     animation: 2s alertAnim forwards;
@@ -37,4 +36,16 @@ hr.line {
         opacity: 1;
         transform: translateY(0); 
     }
+}
+.formRadio{
+    margin-left: 10px;
+    height: 12px;
+    width: 30px;
+}
+.formRadioTitle{
+    font-size: 16px;
+    font-weight: bold;
+}
+.glyphiconRadio{
+    margin-left: 20px;
 }
