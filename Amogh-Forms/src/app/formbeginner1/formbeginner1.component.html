@@ -26,6 +26,24 @@
   </form>
 </div></div>
 
+<div class="container-fluid">
+  <div>
+    <div class="form-container">
+        <div *ngIf="!name; else forminfo">
+            <form [formGroup]= "rForm" (ngSubmit)="addPost(rForm.value)">
+              <h3 class="form-header">BEGINNER-LEVEL 1:</h3>
+              <div class="form-group">
+                <label>FIRST NAME:</label>
+                <input type="text" formControlName="name">
+                <label>MIDDLE NAME:</label>
+                <input type="text" formControlName="name">
+              </div>
+              <hr class="line">
+              <input type="submit" class="btn btn-warning btn-block form-submit-button" value="SUBMIT FORM" [disabled]="!rForm.valid">
+            </form>
+          </div>
+  </div>
+</div>
 
 
 <ng-template #forminfo>
