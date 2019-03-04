@@ -1,43 +1,36 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 
-<div>
-<div *ngIf="!name; else forminfo">
-  <form [formGroup]= "rForm" (ngSubmit)="addPost(rForm.value)">
-    <div class="form-container">
-      <div class="row columns">
-        <h1>TITLE</h1>
-        <label>Name
-          <input type="text" formControlName="name">
-        </label>
-        <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
-          {{ titleAlert }}
-        </div>
-        <label>Description
-          <textarea type="text" formControlName="description"></textarea>
-        </label>
-        <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
-          Length between 30-500 characters
-        </div>
-        <label for="validate">Minimum of 3 characters</label>
-        <input type="checkbox" name="validate" formControlName="validate" value="1"> On
-
-        <input type="submit" class="button expanded" value="SUBMIT FORM" [disabled]="!rForm.valid">
+<!-- TOP NAVIGATION BAR CODE FOR LEVELS AND AMOGH FORMS HEADER-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+      <div class="navbar-header">
+          <a class="navbar-brand">
+            <!-- AMOGH LOGO TO BE Added Here -->
+            <!-- <img src="" class=""> -->
+          </a>
+          <span class="navbar-brand">AMOGH FORMS</span>
       </div>
-    </div>
-  </form>
-</div></div>
-
-
-
-<ng-template #forminfo>
-  <div class="form-container">
-    <h1>{{  name  }}</h1>
-    <p>{{ description }}</p>
+      <ul class="nav navbar-nav">
+          <!-- <li class="active"><a href="#">
+            Link <span class="sr-only">(current)</span>
+          </a></li> -->
+          <li><a routerLink="/formbeginner0">Level 1</a></li>
+          <li><a href="#">Level 2</a></li>
+          <!-- <li class="dropdown" dropdown>
+              <a dropdownToggle role="button">
+                BEGINNER <span class="caret"></span></a>
+              <ul *dropdownMenu class="dropdown-menu"> 
+                  <li><a href="#">Level 0</a></li>
+                  <li><a href="#">Level 1</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Check Medium</a></li>
+              </ul>
+          </li> -->
+      </ul>
   </div>
-</ng-template>
+</nav>
 
 
-
-
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>

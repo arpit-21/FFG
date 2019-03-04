@@ -1,0 +1,36 @@
+<div class="container-fluid">
+<div *ngIf="!name; else forminfo">
+  <form [formGroup]= "rForm" (ngSubmit)="addPost(rForm.value)">
+    <div class="">
+      <div class="form-group">
+        <h1>TITLE</h1>
+        <label>Name
+          <input type="text" formControlName="name">
+        </label>
+        <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+          {{ titleAlert }}
+        </div>
+      <div class="form-group">
+        <label>Description
+          <textarea type="text" formControlName="description"></textarea>
+        </label>
+      </div>
+        <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+          Length between 30-500 characters
+        </div>
+        <!-- <label for="validate">Minimum of 3 characters</label>
+        <input type="checkbox" name="validate" formControlName="validate" value="1"> On -->
+        <input type="submit" class="btn btn-warning" value="SUBMIT FORM" [disabled]="!rForm.valid">
+      </div>
+    </div>
+  </form>
+</div></div>
+
+
+
+<ng-template #forminfo>
+  <div class="form-container">
+    <h1>{{name}}</h1>
+    <p>{{description}}</p>
+  </div>
+</ng-template>
