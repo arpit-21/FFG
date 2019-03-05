@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 <div *ngIf="!name; else forminfo">
   <form [formGroup]= "rForm" (ngSubmit)="addPost(rForm.value)">
     <div class="">
@@ -19,14 +19,120 @@
           Length between 30-500 characters
         </div>
         <!-- <label for="validate">Minimum of 3 characters</label>
-        <input type="checkbox" name="validate" formControlName="validate" value="1"> On -->
+        <input type="checkbox" name="validate" formControlName="validate" value="1"> On
         <input type="submit" class="btn btn-warning" value="SUBMIT FORM" [disabled]="!rForm.valid">
       </div>
     </div>
   </form>
-</div></div>
+</div></div> -->
 
-
+<div class="container">
+    <table class="table table-striped">
+       <tbody>
+         <tr>
+            <h3 class="form-header">BEGINNER-LEVEL 1:</h3>
+         </tr>
+          <tr>
+             <td colspan="1">
+                <form class="well form-horizontal" [formGroup]= "rForm" (ngSubmit)="addPost(rForm.value)">
+                   <fieldset>
+                      <div class="form-group">
+                         <label class="col-md-4 control-label">First Name</label>
+                         <div class="col-md-8 inputGroupContainer">
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="firstName" placeholder="First Name" class="form-control" formControlName="firstName" value="" type="text"></div>
+                            <div class="fieldAlert" *ngIf="!rForm.controls['firstName'].valid && (rForm.controls['firstName'].touched || rForm.controls['firstName'].dirty )">
+                                {{ alphabeticAlert }}
+                            </div>
+                         </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-md-4 control-label">Middle Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="middleName" placeholder="Middle Name" class="form-control" formControlName="middleName"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Last Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="lastName" placeholder="Last Name" class="form-control" formControlName="lastName"  value="" type="text"></div>
+                             <div class="fieldAlert" *ngIf="!rForm.controls['lastName'].valid && (rForm.controls['lastName'].touched || rForm.controls['lastName'].dirty)">
+                                {{ alphabeticAlert }}
+                            </div>
+                            </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Customer ID</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span><input id="customerID" placeholder="Customer ID" class="form-control" formControlName="customerID"  value="" type="text"></div>
+                             <div class="fieldAlert" *ngIf="!rForm.controls['customerID'].valid && (rForm.controls['customerID'].touched || rForm.controls['customerID'].dirty)">
+                                {{ customerIDAlert }}
+                            </div>
+                            </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">DATE OF BIRTH</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span><input id="dob" placeholder="Date Of Birth" class="form-control" formControlName="dob" value="" type="date"></div>
+                             <div class="fieldAlert" *ngIf="!rForm.controls['dob'].valid && (rForm.controls['dob'].touched || rForm.controls['dob'].dirty)">
+                                {{ titleAlert }}
+                            </div>
+                            </div>
+                       </div>
+                       <div class="form-group">
+                          <i class="glyphicon glyphicon-user glyphiconRadio"></i><label class="col-md-4 control-label">Gender:</label>
+                          <input id="male" name="gender" value="Male" type="radio" class="formRadio" formContrlName="gender">
+                            <span class="formRadioTitle">Male</span>
+                          <input id="female" name="gender" value="Female" type="radio" class="formRadio" formContrlName="gender">
+                            <span class="formRadioTitle">Female</span>
+                          <input id="other" name="gender" value="Other" type="radio" class="formRadio" formContrlName="gender">
+                            <span class="formRadioTitle">Other</span>
+                          <!-- <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><span class="form-group"><input id="male" name="gender" value="Male" type="radio" class="formRadio"><span class="formRadioTitle">Male</span><input id="female" name="gender" value="female" type="radio" class="formRadio"><span class="formRadioTitle">Female</span><input id="male" name="gender" value="Male" type="radio" class="formRadio"><span class="formRadioTitle">Other</span></span></div>
+                          </div> -->
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">VOTER ID</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Marital Status</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Father's Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Mother's Maiden Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Spouse Name</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control"  value="" type="text"></div>
+                          </div>
+                       </div>
+                      <input type="reset" class="btn btn-warning btn-block form-submit-button">
+                   </fieldset>
+                   <hr class="line">
+                   <input type="submit" class="btn btn-success btn-block form-submit-button" value="SUBMIT FORM" [disabled]="!rForm.valid">
+                </form>
+             </td>
+          </tr>
+          <tr>
+              <!-- <hr class="line"> -->
+          </tr>
+       </tbody>
+    </table>
+ </div>
 
 <ng-template #forminfo>
   <div class="form-container">
