@@ -8,99 +8,62 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class Formbeginner0Component implements OnInit {
   rForm: FormGroup;
-  post: any;
-  Name: string = "";
-//  middleName: string = "";
-//  lastName: string = "";
+  formSubmitted: boolean = false;
+
+  name: string = "";
   customerID: string = "";
-  dob: string ="";
-  day: string ="";
-  month: string="";
-  year: string="";
-  gender: string="";
-  voterId: string="";
-  maritalStatus: string= "";
-  fatherName: string="";
-  motherName: string="";
-  spouseName: string="";
-  titleAlert: string="This Field Is Required*";
-  alphabeticAlert: string="This Field Is required. Only Alphabetic characters are allowed*";
+  day: string = "";
+  month: string = "";
+  year: string = "";
+  gender: string = "";
+
+  dates: number[] = [];
+  monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  years: number[] = [];
+
+
+  titleAlert: string = "This Field Is Required*";
+  alphabeticAlert: string = "This Field Is required. Only Alphabetic characters are allowed*";
   customerIDAlert: string = "This Field Is required. Only AlphaNumeric characters are allowed*";
-  voterIDAlert: string= "This Field is required. Only Alphanumric and '/' characters are allowed*"
-  formData: any = {};
+  dateAlert: string = "Please Enter Date as Number*";
+  monthAlert: string = "Please Enter Month as Number*";
+  yearAlert: string = "Please Enter Year as Number*";
+  radioButtonAlert: string = "Please Select A Gender*";
 
-  constructor(private fb: FormBuilder){
-
+  constructor(private fb: FormBuilder) {
     this.rForm = fb.group({
-      'Name': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      //'middleName': [null],
-      //'lastName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
+      'name': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
       'customerID': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')])],
-      'dob' : [null, Validators.required],
-      'day' : [null],
-      'month':[null],
-      'year': [null],
-      'gender' : [''],
-      'voterId': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9/]*$')])],
-      'maritalStatus':[null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      'fatherName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      'motherName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      'spouseName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])]
-      // 'description': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
-      // 'validate': ''
+      'day': [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')])],
+      'month': [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
+      'year': [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')])],
+      'gender': ['Male'],
+      'voterID': [null, Validators.pattern('^[a-zA-Z0-9/]+$')],
+      'maritalStatus': ['Single'],
+      'fatherName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
+      'motherName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
+      'spouseName': [null, Validators.pattern('^[a-zA-Z ]*$')],
     })
-  }
 
-  ngOnInit(){
-    //When Component Will init this will get load first.
-    // this.rForm.get('validate').valueChanges.subscribe(
-    //   (validate) => {
-    //     if(validate =='1'){
-    //       this.rForm.get('name').setValidators([Validators.required, Validators.minLength(3)])
-    //       this.titleAlert = "You need to Specify 3 characters"
-    //     }
-    //     else{
-    //       this.rForm.get('firstName').setValidators(Validators.required);
-    //     }
-    //     this.rForm.get('firstName').updateValueAndValidity();
-    //   }
-    // )
-  }
-
-  addPost(post){
-    this.Name = post.Name;
-    //if(post.middleName)
-    //    this.middleName = post.middleName;
-    //this.lastName = post.lastName;
-    this.customerID = post.customerID;
-    this.dob = post.dob;
-    this.day = post.day;
-    this.month=post.month;
-    this.year = post.year;
-    this.gender = post.gender;
-    this.voterId = post.voterId;
-    this.maritalStatus=post.maritalStatus;
-    this.fatherName = post.fatherName;
-    this.motherName = post.motherName;
-    this.spouseName = post.spouseName;
-    //Creating a JSON Object for the data submitted by the user.
-    this.formData = {
-      Name: this.Name,
-      //middleName: this.middleName,
-      //lastName: this.lastName,
-      customerID: this.customerID,
-      dob: this.dob,
-      day: this.day,
-      month: this.month,
-      year: this.year,
-      gender: this.gender,
-      voterId : this.voterId,
-      maritalStatus:this.maritalStatus,
-      fatherName : this.fatherName,
-      motherName : this.motherName,
-      spouseName : this.spouseName
+    //Filling The Date Array
+    for (let i = 1; i <= 31; i++) {
+      this.dates.push(i);
     }
-    console.log("JSON: ", this.formData);
+
+    for (let i = 1900; i <= 2020; i++) {
+      this.years.push(i);
+    }
   }
 
+  ngOnInit() {
+  }
+
+  addPost() {
+    console.log(this.rForm.value);
+    this.formSubmitted = true;
+  }
+
+  displayForm() {
+    this.formSubmitted = false;
+  }
 }
