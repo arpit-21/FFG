@@ -10,6 +10,7 @@ export class Formbeginner1Component implements OnInit {
   rForm: FormGroup;
   post: any;
   formData: any = {};
+  formSubmitted: boolean = false;
 
   firstName: string = "";
   middleName: string = "";
@@ -36,7 +37,7 @@ export class Formbeginner1Component implements OnInit {
   constructor(private fb: FormBuilder) {
     this.rForm = fb.group({
       'firstName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      'middleName': [null],
+      'middleName': [null, Validators.pattern('^[a-zA-Z]*$')],
       'lastName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
       'customerID': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')])],
       'day': [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')])],
@@ -46,12 +47,12 @@ export class Formbeginner1Component implements OnInit {
       'voterID': [null, Validators.pattern('^[a-zA-Z0-9/]+$')],
       'maritalStatus': ['Single'],
       'fatherFirstName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      'fatherMiddleName' : [null],
+      'fatherMiddleName' : [null, Validators.pattern('^[a-zA-Z]*$')],
       'fatherLastName' : [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
       'motherMaidenName' : [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      'spouseFirstName': [null],
-      'spouseMiddleName': [null],
-      'spouseLastName': [null],
+      'spouseFirstName': [null, Validators.pattern('^[a-zA-Z]*$')],
+      'spouseMiddleName': [null, Validators.pattern('^[a-zA-Z]*$')],
+      'spouseLastName': [null, Validators.pattern('^[a-zA-Z]*$')],
     })
 
     //Filling The Date Array
@@ -69,21 +70,7 @@ export class Formbeginner1Component implements OnInit {
 
   addPost(post) {
     console.log(this.rForm.value);
-  //   this.firstName = post.firstName;
-  //   if (post.middleName)
-  //     this.middleName = post.middleName;
-  //   this.lastName = post.lastName;
-  //   this.customerID = post.customerID;
-  //   this.gender = post.gender;
-  //   //Creating a JSON Object for the data submitted by the user.
-  //   this.formData = {
-  //     firstName: this.firstName,
-  //     middleName: this.middleName,
-  //     lastName: this.lastName,
-  //     customerID: this.customerID,
-  //     gender: this.gender,
-  //   }
-  //   console.log("JSON: ", this.formData);
+    this.formSubmitted = true;
   }
 
 }

@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class Formbeginner0Component implements OnInit {
   rForm: FormGroup;
   post: any;
+  formSubmitted: boolean = false;
 
   name: string = "";
   customerID: string = "";
@@ -42,7 +43,7 @@ export class Formbeginner0Component implements OnInit {
       'maritalStatus': ['Single'],
       'fatherName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
       'motherName' : [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
-      'spouseName': [null],
+      'spouseName': [null, Validators.pattern('^[a-zA-Z ]*$')],
     })
 
     //Filling The Date Array
@@ -60,6 +61,7 @@ export class Formbeginner0Component implements OnInit {
 
   addPost(post) {
     console.log(this.rForm.value);
+    this.formSubmitted = true;
   }
 
 }
