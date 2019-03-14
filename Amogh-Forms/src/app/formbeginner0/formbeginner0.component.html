@@ -178,7 +178,8 @@
                            </div>
                         </div>
                      </div>
-                     <div class="form-group" [class.has-error]="!rForm.controls['spouseName'].valid && (rForm.controls['spouseName'].touched || rForm.controls['spouseName'].dirty )">
+                     <div class="form-group"
+                        [class.has-error]="!rForm.controls['spouseName'].valid && (rForm.controls['spouseName'].touched || rForm.controls['spouseName'].dirty )">
                         <label class="col-md-3 control-label">SPOUSE NAME :</label>
                         <div class="col-md-7 inputGroupContainer">
                            <div class="input-group"><span class="input-group-addon"><i
@@ -186,9 +187,9 @@
                                  placeholder="Spouse Name" class="form-control" formControlName="spouseName" value=""
                                  type="text"></div>
                            <div class="fieldAlert"
-                                 *ngIf="!rForm.controls['spouseName'].valid && (rForm.controls['spouseName'].touched || rForm.controls['spouseName'].dirty )">
-                                 {{ alphabeticAlert }}
-                              </div>
+                              *ngIf="!rForm.controls['spouseName'].valid && (rForm.controls['spouseName'].touched || rForm.controls['spouseName'].dirty )">
+                              {{ alphabeticAlert }}
+                           </div>
                         </div>
                      </div>
                      <input type="reset" class="btn btn-warning btn-block form-submit-button">
@@ -215,6 +216,12 @@
             </tr>
             <tr>
                <hr class="line">
+            </tr>
+            <tr>
+               <button class="btn btn-default" (click)="displayForm()">
+                  <i class="glyphicon glyphicon-hand-left"></i>
+                  <b> Go Back</b>
+               </button>
             </tr>
          </tbody>
       </table>

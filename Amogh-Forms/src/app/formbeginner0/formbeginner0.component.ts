@@ -8,7 +8,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class Formbeginner0Component implements OnInit {
   rForm: FormGroup;
-  post: any;
   formSubmitted: boolean = false;
 
   name: string = "";
@@ -38,11 +37,11 @@ export class Formbeginner0Component implements OnInit {
       'day': [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')])],
       'month': [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
       'year': [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')])],
-      'gender' : ['Male'],
+      'gender': ['Male'],
       'voterID': [null, Validators.pattern('^[a-zA-Z0-9/]+$')],
       'maritalStatus': ['Single'],
       'fatherName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
-      'motherName' : [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
+      'motherName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
       'spouseName': [null, Validators.pattern('^[a-zA-Z ]*$')],
     })
 
@@ -59,9 +58,12 @@ export class Formbeginner0Component implements OnInit {
   ngOnInit() {
   }
 
-  addPost(post) {
+  addPost() {
     console.log(this.rForm.value);
     this.formSubmitted = true;
   }
 
+  displayForm() {
+    this.formSubmitted = false;
+  }
 }

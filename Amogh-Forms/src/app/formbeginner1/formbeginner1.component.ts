@@ -43,13 +43,13 @@ export class Formbeginner1Component implements OnInit {
       'day': [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')])],
       'month': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$'), Validators.pattern('^((?!Month+).)*$')])],
       'year': [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')])],
-      'gender' : ['Male'],
+      'gender': ['Male'],
       'voterID': [null, Validators.pattern('^[a-zA-Z0-9/]+$')],
       'maritalStatus': ['Single'],
       'fatherFirstName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      'fatherMiddleName' : [null, Validators.pattern('^[a-zA-Z]*$')],
-      'fatherLastName' : [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      'motherMaidenName' : [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
+      'fatherMiddleName': [null, Validators.pattern('^[a-zA-Z]*$')],
+      'fatherLastName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
+      'motherMaidenName': [null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
       'spouseFirstName': [null, Validators.pattern('^[a-zA-Z]*$')],
       'spouseMiddleName': [null, Validators.pattern('^[a-zA-Z]*$')],
       'spouseLastName': [null, Validators.pattern('^[a-zA-Z]*$')],
@@ -71,6 +71,10 @@ export class Formbeginner1Component implements OnInit {
   addPost(post) {
     console.log(this.rForm.value);
     this.formSubmitted = true;
+  }
+
+  displayForm() {
+    this.formSubmitted = false;
   }
 
 }
