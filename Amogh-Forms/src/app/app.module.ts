@@ -6,13 +6,13 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Formbeginner1Component } from './formbeginner1/formbeginner1.component';
-import { Formbeginner0Component } from './formbeginner0/formbeginner0.component'
+import { Formbeginner0Component } from './formbeginner0/formbeginner0.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Formbeginner1Component,
-    Formbeginner0Component
+    Formbeginner0Component,
   ],
   imports: [
     BrowserModule,
