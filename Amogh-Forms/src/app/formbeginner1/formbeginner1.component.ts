@@ -75,6 +75,7 @@ export class Formbeginner1Component implements OnInit {
 
   displayForm() {
     this.formSubmitted = false;
+this.rForm.reset();
   }
 
 }
