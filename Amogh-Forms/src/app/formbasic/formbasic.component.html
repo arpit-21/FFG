@@ -1,0 +1,229 @@
+<div class="container" *ngIf="!formSubmitted else successInfo">
+  <table class="table table-striped">
+     <tbody>
+        <tr>
+           <h3 class="form-header">TRAINING MODULE: LEVEL 0</h3>
+        </tr>
+        <tr>
+           <td colspan="1">
+              <form class="well form-horizontal" [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)" #form='ngForm'>
+                 <fieldset>
+                    <div class="form-group"
+                       [class.has-error]="!rForm.controls['name'].valid && (rForm.controls['name'].touched || rForm.controls['name'].dirty )">
+                       <label class="col-md-3 control-label">NAME :</label>
+                       <div class="col-md-7 inputGroupContainer">
+                          <div class="input-group">
+                             <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-user"></i>
+                             </span>
+                             <input id="name" placeholder="Enter Full Name" class="form-control" formControlName="name"
+                                value="" type="text">
+                          </div>
+                          <div class="fieldAlert"
+                             *ngIf="!rForm.controls['name'].valid && (rForm.controls['name'].touched || rForm.controls['name'].dirty )">
+                             {{ alphabeticAlert }}
+                          </div>
+                       </div>
+                    </div>
+                    <div class="form-group"
+                       [class.has-error]="!rForm.controls['customerID'].valid && (rForm.controls['customerID'].touched || rForm.controls['customerID'].dirty)">
+                       <label class="col-md-3 control-label">CUSTOMER ID :</label>
+                       <div class="col-md-7 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon">
+                                <i class="glyphicon glyphicon-barcode"></i></span><input id="customerID"
+                                placeholder="Customer ID" class="form-control" formControlName="customerID" value=""
+                                type="text"></div>
+                          <div class="fieldAlert"
+                             *ngIf="!rForm.controls['customerID'].valid && (rForm.controls['customerID'].touched || rForm.controls['customerID'].dirty)">
+                             {{ customerIDAlert }}
+                          </div>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="col-md-3 control-label">DATE OF BIRTH :</label>
+                       <div class="col-md-2 inputGroupContainer"
+                          [class.has-error]="!rForm.controls['day'].valid && (rForm.controls['day'].touched || rForm.controls['day'].dirty)">
+                          <div class="input-group">
+                             <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                             </span>
+                             <input type="text" id="day" formControlName="day" placeholder="Enter Day..."
+                                class="form-control" value="" />
+                          </div>
+                          <div class="fieldAlert"
+                             *ngIf="!rForm.controls['day'].valid && (rForm.controls['day'].touched || rForm.controls['day'].dirty)">
+                             {{ dateAlert }}
+                          </div>
+                       </div>
+                       <div class="col-md-2 inputGroupContainer"
+                          [class.has-error]="!rForm.controls['month'].valid && (rForm.controls['month'].touched || rForm.controls['month'].dirty)">
+                          <div class="input-group">
+                             <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                             </span>
+                             <input type="text" id="month" formControlName="month" placeholder="Enter Month..."
+                                class="form-control" value="" />
+                          </div>
+                          <div class="fieldAlert"
+                             *ngIf="!rForm.controls['month'].valid && (rForm.controls['month'].touched || rForm.controls['month'].dirty)">
+                             {{ monthAlert }}
+                          </div>
+                       </div>
+                       <div class="col-md-2 inputGroupContainer"
+                          [class.has-error]="!rForm.controls['year'].valid && (rForm.controls['year'].touched || rForm.controls['year'].dirty)">
+                          <div class="input-group">
+                             <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                             </span>
+                             <input type="text" id="year" formControlName="year" placeholder="Enter Year..."
+                                class="form-control" value="" />
+                          </div>
+                          <div class="fieldAlert"
+                             *ngIf="!rForm.controls['year'].valid && (rForm.controls['year'].touched || rForm.controls['year'].dirty)">
+                             {{ yearAlert }}
+                          </div>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="col-md-3 control-label">GENDER :</label>
+                       <div class="col-md-2 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon formRadio">
+                                <input id="Male" value="Male" style="cursor: pointer" type="radio"
+                                   formControlName="gender" checked>Male
+                             </span>
+                          </div>
+                       </div>
+                       <div class="col-md-2 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon formRadio">
+                                <input id="Female" value="Female" style="cursor: pointer" type="radio"
+                                   formControlName="gender">Female
+                             </span>
+                          </div>
+                       </div>
+                       <div class="col-md-2 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon formRadio">
+                                <input id="Other" value="Other" style="cursor: pointer" type="radio"
+                                   formControlName="gender">Other
+                             </span>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="form-group"
+                       [class.has-error]="!rForm.controls['voterID'].valid && (rForm.controls['voterID'].touched || rForm.controls['voterID'].dirty)">
+                       <label class="col-md-3 control-label">VOTER ID :</label>
+                       <div class="col-md-7 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon">
+                                <i class="glyphicon glyphicon-barcode"></i></span>
+                             <input id="voterID" placeholder="Customer ID" class="form-control"
+                                formControlName="voterID" value="" type="text">
+                          </div>
+                          <div class="fieldAlert"
+                             *ngIf="!rForm.controls['voterID'].valid && (rForm.controls['voterID'].touched || rForm.controls['voterID'].dirty)">
+                             {{ customerIDAlert }}
+                          </div>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="col-md-3 control-label">MARITAL STATUS :</label>
+                       <div class="col-md-2 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon formRadio">
+                                <input id="Single" value="Single" style="cursor: pointer" type="radio"
+                                   formControlName="maritalStatus" checked>Single
+                             </span>
+                          </div>
+                       </div>
+                       <div class="col-md-2 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon formRadio">
+                                <input id="Married" value="Married" style="cursor: pointer" type="radio"
+                                   formControlName="maritalStatus">Married
+                             </span>
+                          </div>
+                       </div>
+                       <div class="col-md-2 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon formRadio">
+                                <input id="Separated" value="Separated" style="cursor: pointer" type="radio"
+                                   formControlName="maritalStatus">Separated
+                             </span>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="col-md-3 control-label">FATHER'S NAME :</label>
+                       <div class="col-md-7 inputGroupContainer"
+                          [class.has-error]="!rForm.controls['fatherName'].valid && (rForm.controls['fatherName'].touched || rForm.controls['fatherName'].dirty)">
+                          <div class="input-group"><span class="input-group-addon"><i
+                                   class="glyphicon glyphicon-user"></i></span><input id="fatherName"
+                                placeholder="Father's Name" class="form-control" formControlName="fatherName" value=""
+                                type="text"></div>
+                          <div class="fieldAlert"
+                             *ngIf="!rForm.controls['fatherName'].valid && (rForm.controls['fatherName'].touched || rForm.controls['fatherName'].dirty)">
+                             {{ alphabeticAlert }}
+                          </div>
+                       </div>
+                    </div>
+                    <div class="form-group"
+                       [class.has-error]="!rForm.controls['motherName'].valid && (rForm.controls['motherName'].touched || rForm.controls['motherName'].dirty )">
+                       <label class="col-md-3 control-label">MOTHER'S NAME :</label>
+                       <div class="col-md-7 inputGroupContainer">
+                          <div class="input-group">
+                             <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-user"></i>
+                             </span>
+                             <input id="motherName" placeholder="Mother's Maiden Name" class="form-control"
+                                formControlName="motherName" value="" type="text">
+                          </div>
+                          <div class="fieldAlert"
+                             *ngIf="!rForm.controls['motherName'].valid && (rForm.controls['motherName'].touched || rForm.controls['motherName'].dirty )">
+                             {{ alphabeticAlert }}
+                          </div>
+                       </div>
+                    </div>
+                    <div class="form-group"
+                       [class.has-error]="!rForm.controls['spouseName'].valid && (rForm.controls['spouseName'].touched || rForm.controls['spouseName'].dirty )">
+                       <label class="col-md-3 control-label">SPOUSE NAME :</label>
+                       <div class="col-md-7 inputGroupContainer">
+                          <div class="input-group"><span class="input-group-addon"><i
+                                   class="glyphicon glyphicon-user"></i></span><input id="spouseName"
+                                placeholder="Spouse Name" class="form-control" formControlName="spouseName" value=""
+                                type="text"></div>
+                          <div class="fieldAlert"
+                             *ngIf="!rForm.controls['spouseName'].valid && (rForm.controls['spouseName'].touched || rForm.controls['spouseName'].dirty )">
+                             {{ alphabeticAlert }}
+                          </div>
+                       </div>
+                    </div>
+                    <input type="reset" class="btn btn-warning btn-block form-submit-button">
+                 </fieldset>
+                 <hr class="line">
+                 <input type="submit" class="btn btn-success btn-block form-submit-button" value="SUBMIT FORM"
+                    [disabled]="!rForm.valid">
+              </form>
+           </td>
+        </tr>
+     </tbody>
+  </table>
+</div>
+
+<ng-template #successInfo>
+  <div class="container">
+     <table class="table table-striped">
+        <tbody>
+           <tr>
+              <span style="color:rgb(94, 167, 22)">
+                 <h3>Your response has been recorded.</h3>
+                 <h4>Thank You.</h4>
+              </span>
+           </tr>
+           <tr>
+              <hr class="line">
+           </tr>
+           <tr>
+              <button class="btn btn-default" (click)="displayForm()">
+                 <i class="glyphicon glyphicon-hand-left"></i>
+                 <b> Go Back</b>
+              </button>
+           </tr>
+        </tbody>
+     </table>
+  </div>
+</ng-template>
